@@ -11,7 +11,7 @@ public class PersonServicesImpl {
     List<Products>products = new ArrayList<>();
     List<Integer>productSkid = new ArrayList<>();
 
-    public String createProductыChill(String product, List<ChildrenFood>products, Person person, Market market ){
+    public String createProductsChill(String product, List<ChildrenFood>products, Person person, Market market ){
         for (ChildrenFood product1 : products) {
             if(product1.getName().equals(product)){
                 if(product1.getPrice()<=person.getBancAccount()){
@@ -20,11 +20,7 @@ public class PersonServicesImpl {
                     market.setPrice(market.getPrice()+product1.getSkidka());
                     person.setBancAccount(person.getBancAccount()-product1.getSkidka());
                     return "ВЫ ОТПРАВИЛИ В КОРЗИНУ ЭТОТ ТОВАР";
-                }else {
-                    return "У ВАС НЕ ДОСТАТОЧНО ДЕНЕГ";
                 }
-            }else {
-                return "НЕТ ТАКОГО ПРОДУКТА";
             }
         }
         return "ТАКОЙ ТОВАР ЕСТЬ";
@@ -38,11 +34,7 @@ public class PersonServicesImpl {
                     market.setPrice(market.getPrice()+product1.getPrice());
                     person.setBancAccount(person.getBancAccount()-product1.getPrice());
                     return "ВЫ ОТПРАВИЛИ В КОРЗИНУ ЭТОТ ТОВАР";
-                }else {
-                    return "У ВАС НЕ ДОСТАТОЧНО ДЕНЕГ";
                 }
-            }else {
-                return "НЕТ ТАКОГО ПРОДУКТА";
             }
         }
         return "ТАКОЙ ТОВАР ЕСТЬ";
@@ -60,11 +52,9 @@ public class PersonServicesImpl {
                 }else {
                     return "У ВАС НЕ ДОСТАТОЧНО ДЕНЕГ";
                 }
-            }else {
-                return "НЕТ ТАКОГО ПРОДУКТА";
             }
         }
-        return "ТАКОЙ ТОВАР ЕСТЬ";
+        return "ТАКОЙ ТОВАР НЕТ";
     }
     public String createProductsSportFood(String product, List<SportFood>products, Person person, Market market ){
         for (Products product1 : products) {
@@ -78,8 +68,6 @@ public class PersonServicesImpl {
                 }else {
                     return "У ВАС НЕ ДОСТАТОЧНО ДЕНЕГ";
                 }
-            }else {
-                return "НЕТ ТАКОГО ПРОДУКТА";
             }
         }
         return "ТАКОЙ ТОВАР ЕСТЬ";
@@ -97,8 +85,6 @@ public class PersonServicesImpl {
                 }else {
                     return "У ВАС НЕ ДОСТАТОЧНО ДЕНЕГ";
                 }
-            }else {
-                return "НЕТ ТАКОГО ПРОДУКТА";
             }
         }
         return "ТАКОЙ ТОВАР ЕСТЬ";

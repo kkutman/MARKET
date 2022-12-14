@@ -1,4 +1,3 @@
-import JAVA8.classes.BancAccount;
 import JAVA8.classes.Market;
 import JAVA8.classes.Person;
 import JAVA8.products.*;
@@ -15,14 +14,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         MarketServicesAble marketServicesAble = new MarketServicesAble();
         PersonServicesImpl personServices = new PersonServicesImpl();
-        Person person = new Person("KUTMAN",2000);
+        Person person = new Person("KUTMAN",5000);
         Market market = new Market("GLOBUS","ЛУЧШИЙ МАРКЕТ",100000,"+996454454");
-        List<BakeryProducts>bakeryProducts = new ArrayList<>(List.of(
-                new BakeryProducts("ХЛЕБ",25, LocalDate.now(),
-                        "Хлеб Бородинский 290г","BISKEK-NAN"),
-                new BakeryProducts("БАГГЕТ",30,LocalDate.now(),"Багет Парижский аромат 270 г",
-                        "PARISH-NAN")
-        ));
+
+        BakeryProducts bakeryProducts11 =  new BakeryProducts("ХЛЕБ",25, LocalDate.now(),
+                "Хлеб Бородинский 290г","BISKEK-NAN");
+        BakeryProducts bakeryProducts12 =   new BakeryProducts("БАГГЕТ",30,LocalDate.now(),"Багет Парижский аромат 270 г",
+                "PARISH-NAN");
+        List<BakeryProducts>bakeryProducts = new ArrayList<>();
+        bakeryProducts.add(bakeryProducts11);
+        bakeryProducts.add(bakeryProducts12);
         marketServicesAble.createBaker(bakeryProducts);
         List<ChildrenFood>childrenFoods = new ArrayList<>(List.of(
                 new ChildrenFood ("АГУША",120,LocalDate.of(2022,11,4),
@@ -81,7 +82,7 @@ public class Main {
                     System.out.println("        ");
                     System.out.print("НАЗВАНИЕ ПРОДУКТА : ");
                     String nb = scanner.nextLine();
-                    System.out.println(personServices.createProductыChill(nb.toUpperCase(), marketServicesAble.getAllChildrenFoods(), person, market));
+                    System.out.println(personServices.createProductsChill(nb.toUpperCase(), marketServicesAble.getAllChildrenFoods(), person, market));
                     break;
                 case 3:
                     System.out.println(marketServicesAble.getAllSeaFood());
